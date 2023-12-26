@@ -1,0 +1,32 @@
+package Frames;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Test21 {
+
+	public static void main(String[] args) throws Exception {
+
+		WebDriverManager.chromiumdriver().setup();
+		RemoteWebDriver driver=new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit");
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
+		driver.switchTo().frame("iframeResult");
+		driver.findElement(By.name("fname")).clear();
+		driver.findElement(By.name("fname")).sendKeys("Joe");
+		driver.findElement(By.name("lname")).clear();
+		driver.findElement(By.name("lname")).sendKeys("Root");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Thread.sleep(3000);
+		driver.switchTo().defaultContent();
+		
+		
+	}
+
+}
