@@ -25,6 +25,8 @@ public class Method3 {
 		 //String elementText = (String) js.executeScript("return arguments[0].innerText;", dropdownElement);
 
 		 System.out.println(elementText);
+		 System.out.println("#############******************************");
+		 System.out.println("Executed succesfully");
 		 driver.close();
 	}
 
